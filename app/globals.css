@@ -4,8 +4,6 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -16,18 +14,15 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.container {
+  min-height: 100vh; /* Ensures content fills viewport height */
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.image{
+  height: 40vh;
+  width: 60vw;
+  justify-content: center;
+  justify-items: center;
 }
