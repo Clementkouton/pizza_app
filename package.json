@@ -1,14 +1,15 @@
 {
-  "homepage": "https://github.com/Clementkouton/pizza-app-react",
+  "homepage": "https://github.com/Clementkouton/pizza-app-next_js",
   "name": "pizza-app-react",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "gh-pages -d build"
+    "build": "next build",
+    "export": "next export",
+    "deploy": "gh-pages -d out"
   },
   "dependencies": {
     "firebase": "^10.12.5",
