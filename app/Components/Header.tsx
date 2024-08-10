@@ -6,7 +6,7 @@ import { GiFullPizza } from "react-icons/gi";
 
 export default function Header() {
   return (
-        <div className=' h=[80vh] max-w-[1500px] m-auto grid grid-cols-1 md:grid-cols-2 px-5 pt-[150px]'>
+        <div id="accueil" className=' h=[80vh] max-w-[1500px] m-auto grid grid-cols-1 md:grid-cols-2 px-5 pt-[150px]'>
             <div className=' order-2 md:order flex justify-center flex-col'>
                 <h1 className='text-xl md:text-4xl lg:text-6xl text-stone-700 font-black text-center md:text-left mb-2 mt-6 '>
                     Le monde des Meilleurs Pizza Gourmandes

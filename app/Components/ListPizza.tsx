@@ -1,39 +1,30 @@
-import { useState } from "react"
-import { Pizza } from "../Types/Types"
-import Modal from "./Modal";
-import Card from "./Card";
+// ListPizza.tsx
+import React from 'react';
+import { Pizza } from '../Types/Types';
+import Card from './Card';
 
-//<Modal isOpen={isModalOpen} onClose={handleCloseModel} pizza={setSellectePizza} />
-
-interface ListProps{
-    pizzas: Pizza[];
-    addToCart: (pizza: Pizza) => void
+interface ListProps {
+  pizzas: Pizza[];
+  addToCart: (pizza: Pizza) => void;
 }
 
-const ListPizza : React.FC<ListProps> = ({pizzas, addToCart}) => {
-    const [sellectePizza, setSellectePizza] = useState<Pizza | null>(null);
-    const [isModalOpen, setIsModalOpen] = useState(false);
+const ListPizza: React.FC<ListProps> = ({ pizzas, addToCart }) => {
+  return (
+    <div id="nospizzas" className='mt-16'>
+      <h1 className='text-4xl -m-7 text-center font-bold text-stone-700'>Nos meilleurs Pizzas</h1>
+      <div className="grid mt-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {pizzas.map((pizza) => (
+          <Card
+            key={pizza.id}
+            pizza={pizza}
+            addToCart={addToCart} onCardClick={function (pizza: Pizza): void {
+              throw new Error('Function not implemented.');
+            } }        />
+        ))}
+      </div>
 
-    const handleCloseClick = (pizza: Pizza) => {
-        setSellectePizza(pizza)
-        setIsModalOpen(true);
-    }
+    </div>
+  );
+};
 
-    const handleCloseModel = (pizza: Pizza) => {
-        setSellectePizza(null)
-        setIsModalOpen(false);
-    }
-
-
-    return(
-        <div id="pizzaList" className=" max-w-[1000px] w-full mx-auto p-6">
-            <div className=" grid grid-cols-2 px-3 gap-4">
-                {pizzas.map((pizza)=> (
-                    <Card key={pizza.name} pizza={pizza} addToCart={addToCart} onCardClick={handleCloseClick}  />
-                ))}
-            </div>
-             
-        </div>
-    )
-}
 export default ListPizza;
