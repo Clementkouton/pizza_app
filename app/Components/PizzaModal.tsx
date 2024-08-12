@@ -1,5 +1,4 @@
-// PizzaModal.tsx
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Pizza } from '../Types/Types';
 
 interface PizzaModalProps {
@@ -8,21 +7,42 @@ interface PizzaModalProps {
 }
 
 const PizzaModal: React.FC<PizzaModalProps> = ({ pizza, onClose }) => {
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const scrollY = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = '100%';
+
+    return () => {
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      window.scrollTo(0, scrollY);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
+        onClose();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [onClose]);
+
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-      <div className="bg-white rounded-lg p-8 max-w-md w-full">
-        <h2 className="text-2xl font-bold mb-4">{pizza.name}</h2>
-        <img src={pizza.image} alt={pizza.name} className="w-full h-48 object-cover mb-4 rounded" />
-        <p className="text-gray-700 mb-4">{pizza.ingrdient}</p>
-        <p className="text-xl font-semibold mb-4">Prix: {pizza.price}£</p>
-        <div className="flex justify-between">
-          <button 
-            onClick={onClose} 
-            className="bg-gray-300 hover:bg-gray-400 text-black font-bold py-2 px-4 rounded"
-          >
-            Fermer
-          </button>
-        </div>
+    <div className="modal-overlay">
+      <div ref={modalRef} className="modal-content">
+        <h2>{pizza.name}</h2>
+        <p>{pizza.ingredient}</p>
+        <p>Prix: {pizza.price}£</p>
+        <button onClick={onClose}>Fermer</button>
       </div>
     </div>
   );

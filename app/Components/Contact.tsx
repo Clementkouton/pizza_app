@@ -18,8 +18,8 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div id="contact" className="container mx-auto p-4 min-h-screen">
-      <h1 className="text-4xl font-bold mb-3 mt-4 text-center text-stone-700">Contactez-nous</h1>
+    <div id="contact" className=" mt-6 container mx-auto p-4 min-h-screen">
+      <h1 className='text-xl font-black md:text-4xl lg:text-4xl text-center font-bold text-stone-700'>Contactez-nous</h1>
       <form onSubmit={handleSubmit} className="bg-white flex-grow shadow-md rounded px-8 pt-3 pb-8 mb-4">
           <div className="mb-6">
             <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">

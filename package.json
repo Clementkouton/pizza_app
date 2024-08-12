@@ -1,5 +1,5 @@
 {
-  "homepage": "https://github.com/Clementkouton/pizza-app-next_js",
+  "homepage": "https://github.com/Clementkouton/pizza_app",
   "name": "pizza-app-react",
   "version": "0.1.0",
   "private": true,
@@ -17,6 +17,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.2.1",
+    "react-router-dom": "^6.26.0",
     "react-toastify": "^10.0.5"
   },
   "devDependencies": {

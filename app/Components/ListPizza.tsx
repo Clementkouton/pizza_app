@@ -10,9 +10,9 @@ interface ListProps {
 
 const ListPizza: React.FC<ListProps> = ({ pizzas, addToCart }) => {
   return (
-    <div id="nospizzas" className='mt-16'>
-      <h1 className='text-4xl -m-7 text-center font-bold text-stone-700'>Nos meilleurs Pizzas</h1>
-      <div className="grid mt-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div id="nospizzas" className='mt-10 px-4'>
+      <h1 className='text-xl font-black md:text-4xl lg:text-4xl text-center font-bold text-stone-700'>Nos meilleurs Pizzas</h1>
+      <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 w-full lg:grid-cols-3 gap-4">
         {pizzas.map((pizza) => (
           <Card
             key={pizza.id}

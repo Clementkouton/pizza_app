@@ -3,7 +3,6 @@
 import Nav from "./Components/Nav";
 import Header from "./Components/Header";
 import ListPizza from "./Components/ListPizza";
-import Modal from "./Components/Modal";
 import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
 import OrderSummary from "./Components/OrderSummary";

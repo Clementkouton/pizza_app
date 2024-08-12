@@ -23,7 +23,7 @@ const Nav: React.FC<NavProps> = ({ cartQuantity, handleViewOrder }) => {
   ];
 
   return (
-    <nav className='fixed z-10 shadow-md w-full bg-white h-50 justify-between items-center p-5 text-slate-700'>
+    <nav className='fixed z-10 shadow-md bg-white h-50 justify-between items-center p-5 text-slate-700 w-100'>
       <div className="flex w-full justify-between">
         <div className="flex items-center gap-2 cursor-pointer" onClick={() => router.push("/")}>
           <GiFullPizza className="text-orange-600 text-3xl" />
